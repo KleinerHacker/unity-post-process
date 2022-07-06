@@ -1,0 +1,20 @@
+{
+  "name": "org.pcsoft.post-process",
+  "version": "1.4.3",
+  "displayName": "Unity Post Processing",
+  "description": "Custom Post Processes and Framework to create own Post Processes",
+  "unity": "2021.3",
+  "keywords": [
+    "post-process",
+    "extension",
+    "framework",
+  ],
+  "dependencies": {
+    
+  },
+  "author": {
+    "name": "Pfeiffer C Soft",
+    "email": "kl3in3rhack3r@gmail.com",
+    "url": "https://github.com/KleinerHacker/unity-post-process"
+  }
+}
