@@ -21,13 +21,10 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Ba
         protected PostProcessVolumeComponent()
         {
             _fieldData = GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                .Where(x => x.GetCustomAttribute<SerializeField>() != null)
+                .Where(x => x.GetCustomAttribute<SerializeField>() != null && x.GetCustomAttribute<PostProcessVolumeValueAttribute>() != null)
                 .Select(x =>
                 {
                     var attribute = x.GetCustomAttribute<PostProcessVolumeValueAttribute>();
-                    if (attribute == null)
-                        throw new InvalidOperationException("Unable to find required attribute " + nameof(PostProcessVolumeValueAttribute) + " on field " + x.Name + " in class " + GetType().Name);
-
                     return new FieldData(x, Shader.PropertyToID(attribute.ShaderParameterName), ShaderParameterTypeUtils.FromType(x.FieldType));
                 })
                 .ToList();

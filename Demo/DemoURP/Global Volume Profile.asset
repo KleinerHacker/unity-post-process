@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: 2681851619090983145}
+  - {fileID: 2704714689823797766}
 --- !u!114 &2681851619090983145
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -26,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f56389f2a445d5aaadd98acf23384a, type: 3}
   m_Name: UnderWaterEffectVolume
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: 1
@@ -39,3 +40,28 @@ MonoBehaviour:
   speed:
     m_OverrideState: 0
     m_Value: {x: 0.003, y: 0.007}
+--- !u!114 &2704714689823797766
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2de4c05cc574809b476b80d6547cfd2, type: 3}
+  m_Name: ColorChangeInDepthEffectVolume
+  m_EditorClassIdentifier: 
+  active: 1
+  startDistance:
+    m_OverrideState: 1
+    m_Value: 0.2
+  endDistance:
+    m_OverrideState: 1
+    m_Value: 0.3
+  multiplier:
+    m_OverrideState: 1
+    m_Value: 0.05
+  activate:
+    m_OverrideState: 1
+    m_Value: 1

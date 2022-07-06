@@ -5,7 +5,7 @@ using UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Base;
 
 namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
 {
-    [Serializable, PostProcessRendererFeature(new[] { typeof(UnderWaterPostProcessPass) })]
+    [Serializable, PostProcessRendererFeature(new[] { typeof(UnderWaterPostProcessPass), typeof(ColorChangeInDepthPostProcessPass) })]
     public class ExtendedPostProcessRendererFeature : PostProcessRendererFeature
     {
         #region Inspector Data
