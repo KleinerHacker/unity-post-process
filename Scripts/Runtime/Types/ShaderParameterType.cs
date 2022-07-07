@@ -6,5 +6,6 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.Types
         Float,
         Vector,
         Texture,
+        Color,
     }
 }

@@ -58,7 +58,7 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
 
         #endregion
 
-        public override bool IsActive() => intensity.value > 0f;
+        public override bool IsActive() => intensity.value > 0f && waveNormal.value != null;
 
 #if HDRP && !FORCE_URP
         public override Shader GetShader()

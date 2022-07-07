@@ -32,9 +32,13 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.Utils.Extensions
                         default:
                             throw new InvalidOperationException("Wrong parameter type? " + value.GetType().Name);
                     }
+
                     break;
                 case ShaderParameterType.Texture:
                     material.SetTexture(id, ((TextureParameter)value).value);
+                    break;
+                case ShaderParameterType.Color:
+                    material.SetColor(id, ((ColorParameter)value).value);
                     break;
                 default:
                     throw new NotImplementedException();
