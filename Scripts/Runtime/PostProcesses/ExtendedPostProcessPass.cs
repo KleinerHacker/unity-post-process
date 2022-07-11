@@ -12,11 +12,15 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
         private const string KeyUnderWater = "under-water";
         private const string KeyBlackWhite = "black-white";
         private const string KeyPixelate = "pixelate";
+        private const string KeyGrayScale = "gray-scale";
+        private const string KeySwirl = "swirl";
 
         public ExtendedPostProcessPass() : base(
             (KeyBlackWhite, Resources.Load<Shader>("Shaders/BlackWhite_URP")),
             (KeyUnderWater, Resources.Load<Shader>("Shaders/UnderWater_URP")),
-            (KeyPixelate, Resources.Load<Shader>("Shaders/Pixelate_URP"))
+            (KeyPixelate, Resources.Load<Shader>("Shaders/Pixelate_URP")),
+            (KeyGrayScale, Resources.Load<Shader>("Shaders/GrayScale_URP")),
+            (KeySwirl, Resources.Load<Shader>("Shaders/Swirl_URP"))
         )
         {
         }
@@ -38,6 +42,8 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
                 KeyUnderWater => stack.GetComponent<UnderWaterEffectVolume>(),
                 KeyBlackWhite => stack.GetComponent<BlackWhiteEffectVolume>(),
                 KeyPixelate => stack.GetComponent<PixelateEffectVolume>(),
+                KeyGrayScale => stack.GetComponent<GrayScaleEffectVolume>(),
+                KeySwirl => stack.GetComponent<SwirlEffectVolume>(),
                 _ => throw new NotImplementedException(data.Identifier)
             };
         }

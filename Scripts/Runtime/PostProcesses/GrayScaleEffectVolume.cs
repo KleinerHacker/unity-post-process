@@ -6,8 +6,8 @@ using UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Base.A
 
 namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
 {
-    [Serializable, VolumeComponentMenu("Post-processing/Extensions/Color/Black White Effect")]
-    public sealed class BlackWhiteEffectVolume : PostProcessVolumeComponent
+    [Serializable, VolumeComponentMenu("Post-processing/Extensions/Color/Gray Scale Effect")]
+    public sealed class GrayScaleEffectVolume : PostProcessVolumeComponent
     {
         #region Inspector Data
 
@@ -15,10 +15,19 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
         [PostProcessVolumeValue("_Intensity")]
         private ClampedFloatParameter intensity = new ClampedFloatParameter(0f, 0f, 1f, true);
 
+        [Header("Channels")]
         [SerializeField]
-        [PostProcessVolumeValue("_Factor")]
-        private ClampedFloatParameter factor = new ClampedFloatParameter(0.5f, 0f, 1f);
-
+        [PostProcessVolumeValue("_Red")]
+        private ClampedFloatParameter red = new ClampedFloatParameter(0.39f, 0f, 1f);
+        
+        [SerializeField]
+        [PostProcessVolumeValue("_Green")]
+        private ClampedFloatParameter green = new ClampedFloatParameter(0.41f, 0f, 1f);
+        
+        [SerializeField]
+        [PostProcessVolumeValue("_Blue")]
+        private ClampedFloatParameter blue = new ClampedFloatParameter(0.2f, 0f, 1f);
+        
         [Header("Colors")]
         [SerializeField]
         [PostProcessVolumeValue("_CUSTOMCOLORS")]
@@ -36,10 +45,34 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
 
         #region Properties
 
+        public ClampedFloatParameter Red
+        {
+            get => red;
+            set => red = value;
+        }
+
+        public ClampedFloatParameter Green
+        {
+            get => green;
+            set => green = value;
+        }
+
+        public ClampedFloatParameter Blue
+        {
+            get => blue;
+            set => blue = value;
+        }
+
         public ClampedFloatParameter Intensity
         {
             get => intensity;
             set => intensity = value;
+        }
+
+        public BoolParameter CustomColors
+        {
+            get => customColors;
+            set => customColors = value;
         }
 
         public ColorParameter DarkColor
@@ -54,18 +87,6 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
             set => brightColor = value;
         }
 
-        public ClampedFloatParameter Factor
-        {
-            get => factor;
-            set => factor = value;
-        }
-
-        public BoolParameter CustomColors
-        {
-            get => customColors;
-            set => customColors = value;
-        }
-
         #endregion
         
         public override bool IsActive() => intensity.value > 0f;
@@ -73,7 +94,7 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
 #if HDRP && !FORCE_URP
         public override Shader GetShader()
         {
-            return Resources.Load<Shader>("Shaders/BlackWhite_HDRP");
+            return Resources.Load<Shader>("Shaders/GrayScale_HDRP");
         }
 #endif
     }

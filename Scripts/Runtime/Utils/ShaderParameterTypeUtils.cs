@@ -26,6 +26,9 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.Utils
             if (typeof(ColorParameter).IsAssignableFrom(type))
                 return ShaderParameterType.Color;
 
+            if (typeof(BoolParameter).IsAssignableFrom(type))
+                return ShaderParameterType.Boolean;
+
             throw new NotSupportedException("Type " + type.Name + " not supported yet");
         }
     }

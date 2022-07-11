@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Base.Attributes;
 using UnityPostProcess.Runtime.post_process.Scripts.Runtime.Types;
 using UnityPostProcess.Runtime.post_process.Scripts.Runtime.Utils;
@@ -11,7 +12,7 @@ using UnityPostProcess.Runtime.post_process.Scripts.Runtime.Utils;
 namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Base
 {
     [Serializable]
-    public abstract class PostProcessVolumeComponent : UnityEngine.Rendering.VolumeComponent, UnityEngine.Rendering.Universal.IPostProcessComponent
+    public abstract class PostProcessVolumeComponent : VolumeComponent, UnityEngine.Rendering.Universal.IPostProcessComponent
     {
         public abstract bool IsActive();
         public virtual bool IsTileCompatible() => true;
@@ -25,7 +26,7 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Ba
                 .Select(x =>
                 {
                     var attribute = x.GetCustomAttribute<PostProcessVolumeValueAttribute>();
-                    return new FieldData(x, Shader.PropertyToID(attribute.ShaderParameterName), ShaderParameterTypeUtils.FromType(x.FieldType));
+                    return new FieldData(x, new ShaderKey(attribute.ShaderParameterName), ShaderParameterTypeUtils.FromType(x.FieldType));
                 })
                 .ToList();
         }

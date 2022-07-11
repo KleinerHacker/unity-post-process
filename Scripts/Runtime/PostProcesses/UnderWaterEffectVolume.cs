@@ -6,7 +6,7 @@ using UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Base;
 
 namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
 {
-    [Serializable, VolumeComponentMenu("Extensions/Under Water Effect")]
+    [Serializable, VolumeComponentMenu("Post-processing/Extensions/Filter/Under Water Effect")]
     public sealed class UnderWaterEffectVolume : PostProcessVolumeComponent
     {
         #region Inspector Data

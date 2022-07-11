@@ -6,7 +6,7 @@ using UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Base.A
 
 namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses
 {
-    [Serializable, VolumeComponentMenu("Extensions/Pixelate Effect")]
+    [Serializable, VolumeComponentMenu("Post-processing/Extensions/Art/Pixelate Effect")]
     public sealed class PixelateEffectVolume : PostProcessVolumeComponent
     {
         #region Inspector Data

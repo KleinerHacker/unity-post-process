@@ -114,7 +114,7 @@ namespace UnityPostProcess.Runtime.post_process.Scripts.Runtime.PostProcesses.Ba
         {
             foreach (var fieldData in myEffect.FieldDataList)
             {
-                material.SetProperty(fieldData.KeyID, fieldData.FieldInfo.GetValue(myEffect), fieldData.Type);
+                material.SetProperty(fieldData.ShaderKey, fieldData.FieldInfo.GetValue(myEffect), fieldData.Type);
             }
         }
 
