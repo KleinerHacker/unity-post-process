@@ -1,13 +1,13 @@
 {
   "name": "org.pcsoft.post-process",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "displayName": "Unity Post Processing",
   "description": "Custom Post Processes and Framework to create own Post Processes",
   "unity": "2021.3",
   "keywords": [
     "post-process",
     "extension",
-    "framework",
+    "framework"
   ],
   "dependencies": {
     

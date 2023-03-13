@@ -1,4 +1,4 @@
-#if DEBUG
+#if DEMO
 using UnityEngine;
 
 namespace UnityPostProcess.Demo.post_process.Scripts.Demo
